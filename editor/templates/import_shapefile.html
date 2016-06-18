@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>ShapeEditor</title>
+</head>
+<body>
+<h1>Import Shapefile</h1>
+{% if err_msg %}
+<b><i>{{ err_msg }}</i></b>
+{% endif %}
+<form enctype="multipart/form-data" method='POST' action="import">
+{{ form.as_p }}
+<input type="submit" value="Submit"/>
+<button type="button" onClick='window.location="/editor";'>Cancel</button>
+</form>
+</body>
+</html>

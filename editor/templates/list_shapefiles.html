@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>ShapeEditor</title>
+</head>
+<body>
+  <h1>ShapeEditor</h1>
+   {% if shapefiles %}
+    <b>Available Shapefiles:</b>
+     <table border="2" cellspacing="2" cellpadding="5" style="padding-left:20px">
+     {% for shapefile in shapefiles %}
+     <tr>
+      <td>
+<span style="font-family:monospace">{{ shapefile.filename }}</span>
+</td>
+<td>&nbsp;</td>
+<td>
+<a href="/editor/edit/{{ shapefile.id }}">
+Edit
+</a>
+</td>
+<td>&nbsp;</td>
+<td>
+<a href="/editor/export/{{ shapefile.id }}">
+Export
+</a>
+</td>
+<td>&nbsp;</td>
+<td>
+<a href="/editor/delete/{{ shapefile.id }}">
+Delete
+</a>
+</td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+<button type="button"
+onClick='window.location="/import";'>Import New Shapefile
+</button>
+</body>
+</html>
